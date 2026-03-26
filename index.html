@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Sweet Basket For You</title>
+    <style>
+        :root {
+            /* Sweet Aesthetic Palette: Soft Pink, Cream, and Deep Rose */
+            --bg-gradient: linear-gradient(135deg, #fff5f5 0%, #f7d9da 100%);
+            --accent-warm: #d68c96; /* Soft Rose */
+            --text-dark: #5e4b4d; /* Muted Cocoa */
+            --glass: rgba(255, 255, 255, 0.8);
+            --card-shadow: rgba(214, 140, 150, 0.2);
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-gradient);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            color: var(--text-dark);
+        }
+
+        /* Access Layer */
+        #lock-screen {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-gradient);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            transition: 1s ease-in-out;
+        }
+
+        .lock-box {
+            background: var(--glass);
+            padding: 3rem;
+            border-radius: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px var(--card-shadow);
+            text-align: center;
+            border: 2px solid #fff;
+        }
+
+        input {
+            padding: 12px;
+            border: 2px solid var(--accent-warm);
+            border-radius: 15px;
+            margin: 20px 0;
+            outline: none;
+            background: white;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        .btn {
+            background: var(--accent-warm);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #c27a84;
+        }
+
+        /* Main Container */
+        #main-basket {
+            display: none;
+            width: 90%;
+            max-width: 900px;
+            padding: 50px 0;
+        }
+
+        header { text-align: center; margin-bottom: 50px; }
+        header h1 { font-size: 2.8rem; margin: 0; color: var(--accent-warm); text-shadow: 1px 1px 0px white; }
+        header p { opacity: 0.8; font-style: italic; }
+
+        .basket-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 10px 25px var(--card-shadow);
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-8px); }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--accent-warm);
+        }
+
+        .card-title span { font-size: 1.5rem; margin-right: 10px; }
+
+        /* Gallery Styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid white;
+        }
+
+        .message-text {
+            line-height: 1.8;
+            font-style: italic;
+            color: #7a6668;
+            font-size: 1.1rem;
+        }
+
+        ul { padding-left: 20px; list-style-type: '🍬 '; }
+        li { margin-bottom: 12px; }
+
+        iframe { border-radius: 20px; width: 100%; margin-top: 10px; border: 2px solid white; }
+    </style>
+</head>
+<body>
+
+    <div id="lock-screen">
+        <div class="lock-box">
+            <h2 style="color: var(--accent-warm);">For My Favorite Person</h2>
+            <p>Enter our secret code:</p>
+            <input type="password" id="passInput" placeholder="Type here...">
+            <br>
+            <button class="btn" onclick="unlock()">Need password po!🎀<br>tawag mo saken hehe</button>
+        </div>
+    </div>
+
+    <div id="main-basket">
+        <header>
+            <h1>🍭 Your Sweet Little Basket</h1>
+            <p>Gathered with all the love I have for you.</p>
+        </header>
+
+        <div class="basket-grid">
+            
+            <div class="card">
+                <div class="card-title"><span>💖</span> Sweet Moments</div>
+                <div class="gallery">
+                    <img src="Joy1.png" alt="You">
+                    <img src="joy2.png" alt="You">
+                    <img src="joy3.png" alt="You">
+                    <img src="Joy4.png" alt="You">
+                </div>
+                <p style="font-size: 0.85rem; margin-top: 15px; text-align: center; color: var(--accent-warm);">Every photo is a favorite memory.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span>🎶</span> Our Sweet Sound</div>
+                <p>The perfect song for the most perfect girl.</p>
+                <iframe height="200" src="https://www.youtube.com/embed/WUvD8XAPI4E" title="Naiilang - John Roa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span>✨</span> Why You're Amazing</div>
+                <ul>
+                    <li>The way you smile makes everything better.</li>
+                    <li>You're the smartest person I know.</li>
+                    <li>Your heart is just as beautiful as your face.</li>
+                    <li>The way you talk about the things you love.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="grid-column: 1 / -1;">
+                <div class="card-title"><span>💌</span> To My Baby</div>
+                <p class="message-text">
+                    "I wanted to build this little corner of the internet just for us. You deserve to be celebrated 
+                    every single day. I hope this makes you smile as much as you make me smile. 
+                    I'm so lucky to have you in my life."
+                </p>
+                <p style="text-align: right; font-weight: bold; color: var(--accent-warm); font-size: 1.2rem;">— Always Yours 🧸</p>
+            </div>
+
+        </div>
+
+        <footer style="text-align: center; margin-top: 60px; padding-bottom: 30px; font-size: 0.9rem; opacity: 0.6;">
+            Made with lots of sugar and love.
+        </footer>
+    </div>
+
+    <script>
+        const SECRET = "baby";  
+
+        function unlock() {
+            const val = document.getElementById('passInput').value.toLowerCase();
+            if(val === SECRET) {
+                document.getElementById('lock-screen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('lock-screen').style.display = 'none';
+                    document.getElementById('main-basket').style.display = 'block';
+                }, 1000);
+            } else {
+                alert("Incorrect code! Hint: It's my favorite name for you...");
+            }
+        }
+    </script>
+</body>
+</html>
